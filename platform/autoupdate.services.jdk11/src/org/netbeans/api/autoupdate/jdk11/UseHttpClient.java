@@ -26,8 +26,11 @@ import java.time.Duration;
 import java.net.http.*;
 import static java.net.http.HttpClient.*;
 import java.nio.file.Paths;
+import org.netbeans.spi.autoupdate.UseHttpSpi;
+import org.openide.util.lookup.ServiceProvider;
 
-public class UseHttpClient {
+@ServiceProvider(service = UseHttpSpi.class)
+public class UseHttpClient implements UseHttpSpi {
     public void demo() throws Exception {
         HttpClient client = HttpClient.newBuilder()
              .version(Version.HTTP_1_1)
